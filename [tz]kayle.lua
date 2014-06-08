@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 local Version = "1.0"
 _G.kayleVersion = "1.0"
 _G.kayleAUTOUPDATE = true
@@ -44,6 +45,8 @@ end
 
 
 
+=======
+>>>>>>> 4dc70f2f00c2e626151b48b7585600fef1098fb5
 if myHero.charName ~= "Kayle" then return end
 local allowed=false
 local aRange = 525
