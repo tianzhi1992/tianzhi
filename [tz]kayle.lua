@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 local Version = "1.0"
 _G.kayleVersion = "1.0"
 _G.kayleAUTOUPDATE = true
@@ -45,8 +44,6 @@ end
 
 
 
-=======
->>>>>>> 4dc70f2f00c2e626151b48b7585600fef1098fb5
 if myHero.charName ~= "Kayle" then return end
 local allowed=false
 local aRange = 525
@@ -59,7 +56,7 @@ function OnLoad()
 if GetUser() == "woainima" or  GetUser() == "hnhy617369" or GetUser() == "835390" or  GetUser() == "fflovezj1221" or GetUser() == "lengbina001" or GetUser() == "kf9299" or GetUser() == "jiahongbinx" or GetUser() == "nady269" or  GetUser() == "tianzhi1992"or  GetUser() == "andrewls"
 
 then allowed = true end
-if  not allowed then PrintChat("<font color='#CCCCCC'> >>[tz]kayleæœªè®¤è¯ç”¨æˆ·è¯·è”ç³»ä½œè€?</font>") return end
+if  not allowed then PrintChat("<font color='#CCCCCC'> >>[tz]kayleæœªè®¤è¯ç”¨æˆ·è¯·è”ç³»ä½œï¿½ï¿½?</font>") return end
     minionMobs = {}
 	minionClusters = {}
 	Vars()
@@ -67,48 +64,48 @@ if  not allowed then PrintChat("<font color='#CCCCCC'> >>[tz]kayleæœªè®¤è¯ç”¨æˆ
 	PrintChat("<font color='#CCCCCC'> >> è´­ä¹°è¯·è”ç³»QQ332433061<<</font>")
 	PrintChat("<font color='#CCCCCC'> >> ç¥æ‚¨æ¸¸æˆæ„‰å¿«<<</font>")
 	KayleConfig = scriptConfig("[tz] Kayle", "Kayle_The_Judicator")
-	KayleConfig:addSubMenu("±¬·¢", "Combo")
-	KayleConfig.Combo:addParam("Combo", "±¬·¢", SCRIPT_PARAM_ONKEYDOWN, false, 32)
-	KayleConfig.Combo:addParam("Harass", "É§ÈÅ", SCRIPT_PARAM_ONKEYDOWN, false, string.byte("S"))
+	KayleConfig:addSubMenu("ï¿½ï¿½ï¿½ï¿½", "Combo")
+	KayleConfig.Combo:addParam("Combo", "ï¿½ï¿½ï¿½ï¿½", SCRIPT_PARAM_ONKEYDOWN, false, 32)
+	KayleConfig.Combo:addParam("Harass", "É§ï¿½ï¿½", SCRIPT_PARAM_ONKEYDOWN, false, string.byte("S"))
 	KayleConfig.Combo:permaShow("Combo")
 	KayleConfig.Combo:permaShow("Harass")
-	KayleConfig:addSubMenu("É§ÈÅ", "harass")
-	KayleConfig.Combo:addParam("useQ", "Ê¹ÓÃQ", SCRIPT_PARAM_ONOFF, true)
-	KayleConfig.Combo:addParam("useW", "Ê¹ÓÃW", SCRIPT_PARAM_ONOFF, true)
-	KayleConfig.Combo:addParam("useE", "Ê¹ÓÃE", SCRIPT_PARAM_ONOFF, true)
+	KayleConfig:addSubMenu("É§ï¿½ï¿½", "harass")
+	KayleConfig.Combo:addParam("useQ", "Ê¹ï¿½ï¿½Q", SCRIPT_PARAM_ONOFF, true)
+	KayleConfig.Combo:addParam("useW", "Ê¹ï¿½ï¿½W", SCRIPT_PARAM_ONOFF, true)
+	KayleConfig.Combo:addParam("useE", "Ê¹ï¿½ï¿½E", SCRIPT_PARAM_ONOFF, true)
 	KayleConfig.Combo:permaShow("Combo")
 	KayleConfig.Combo:permaShow("Harass")
-	KayleConfig.harass:addParam("useQ", "Ê¹ÓÃQ", SCRIPT_PARAM_ONOFF, true)
-	KayleConfig.harass:addParam("useW", "Ê¹ÓÃW", SCRIPT_PARAM_ONOFF, true)
-	KayleConfig.harass:addParam("useE", "Ê¹ÓÃE", SCRIPT_PARAM_ONOFF, true)
+	KayleConfig.harass:addParam("useQ", "Ê¹ï¿½ï¿½Q", SCRIPT_PARAM_ONOFF, true)
+	KayleConfig.harass:addParam("useW", "Ê¹ï¿½ï¿½W", SCRIPT_PARAM_ONOFF, true)
+	KayleConfig.harass:addParam("useE", "Ê¹ï¿½ï¿½E", SCRIPT_PARAM_ONOFF, true)
 	--> Heal Settings
-	KayleConfig:addSubMenu("ÖÎÁÆ", "Heal")
-	KayleConfig.Heal:addSubMenu("ÖÎÁÆÄ¿±êÑ¡Ôñ", "HealTargeting")
-	KayleConfig.Heal:addParam("PercentofHealth", "Ê¹ÓÃÖÎÁÆÑªÁ¿°Ù·Ö±È",SCRIPT_PARAM_SLICE, 25, 0, 100, 0)	
-	KayleConfig.Heal.HealTargeting:addParam(myHero.charName.."healTarget", "ÖÎÁÆ ".. myHero.charName, SCRIPT_PARAM_ONOFF, true)
+	KayleConfig:addSubMenu("ï¿½ï¿½ï¿½ï¿½", "Heal")
+	KayleConfig.Heal:addSubMenu("ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½Ñ¡ï¿½ï¿½", "HealTargeting")
+	KayleConfig.Heal:addParam("PercentofHealth", "Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñªï¿½ï¿½ï¿½Ù·Ö±ï¿½",SCRIPT_PARAM_SLICE, 25, 0, 100, 0)	
+	KayleConfig.Heal.HealTargeting:addParam(myHero.charName.."healTarget", "ï¿½ï¿½ï¿½ï¿½ ".. myHero.charName, SCRIPT_PARAM_ONOFF, true)
 	for i, ally in ipairs(GetAllyHeroes()) do
-		KayleConfig.Heal.HealTargeting:addParam(ally.charName.."healTarget", "ÖÎÁÆ "..ally.charName, SCRIPT_PARAM_ONOFF, true)
+		KayleConfig.Heal.HealTargeting:addParam(ally.charName.."healTarget", "ï¿½ï¿½ï¿½ï¿½ "..ally.charName, SCRIPT_PARAM_ONOFF, true)
 	end
-	KayleConfig.Heal:addParam("healAllies", "ÖÎÁÆ¶ÓÓÑ¿ª¹Ø¼ü", SCRIPT_PARAM_ONOFF, true)
+	KayleConfig.Heal:addParam("healAllies", "ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½Ñ¿ï¿½ï¿½Ø¼ï¿½", SCRIPT_PARAM_ONOFF, true)
 	--> Ult Settings
-    KayleConfig:addSubMenu("´óÕĞ", "ult")
-	KayleConfig.ult:addSubMenu("´óÕĞÄ¿±êÑ¡Ôñ", "ultTargeting")
-	KayleConfig.ult:addParam("PercentofUlt", "Ê¹ÓÃ´óÕĞÑªÁ¿°Ù·Ö±È",SCRIPT_PARAM_SLICE, 25, 0, 100, 0)	
-	KayleConfig.ult:addParam("ultAllies", "¶Ô¶ÓÓÑÊ¹ÓÃ´óÕĞ", SCRIPT_PARAM_ONOFF, false)
-	KayleConfig.ult:addParam("myult", "¶Ô×Ô¼ºÊ¹ÓÃ´óÕĞ", SCRIPT_PARAM_ONOFF, true)
-	KayleConfig.ult.ultTargeting:addParam(myHero.charName.."ultTarget", "´óÕĞ".. myHero.charName, SCRIPT_PARAM_ONOFF, true)
+    KayleConfig:addSubMenu("ï¿½ï¿½ï¿½ï¿½", "ult")
+	KayleConfig.ult:addSubMenu("ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½Ñ¡ï¿½ï¿½", "ultTargeting")
+	KayleConfig.ult:addParam("PercentofUlt", "Ê¹ï¿½Ã´ï¿½ï¿½ï¿½Ñªï¿½ï¿½ï¿½Ù·Ö±ï¿½",SCRIPT_PARAM_SLICE, 25, 0, 100, 0)	
+	KayleConfig.ult:addParam("ultAllies", "ï¿½Ô¶ï¿½ï¿½ï¿½Ê¹ï¿½Ã´ï¿½ï¿½ï¿½", SCRIPT_PARAM_ONOFF, false)
+	KayleConfig.ult:addParam("myult", "ï¿½ï¿½ï¿½Ô¼ï¿½Ê¹ï¿½Ã´ï¿½ï¿½ï¿½", SCRIPT_PARAM_ONOFF, true)
+	KayleConfig.ult.ultTargeting:addParam(myHero.charName.."ultTarget", "ï¿½ï¿½ï¿½ï¿½".. myHero.charName, SCRIPT_PARAM_ONOFF, true)
 	for i, ally in ipairs(GetAllyHeroes()) do
-		KayleConfig.ult.ultTargeting:addParam(ally.charName.."ultTarget", "´óÕĞ "..ally.charName, SCRIPT_PARAM_ONOFF, true)
+		KayleConfig.ult.ultTargeting:addParam(ally.charName.."ultTarget", "ï¿½ï¿½ï¿½ï¿½ "..ally.charName, SCRIPT_PARAM_ONOFF, true)
 	end
-	KayleConfig:addSubMenu("ÇÀÈËÍ·", "KS")
-	KayleConfig.KS:addParam("autoignite", "×Ô¶¯µãÈ¼", SCRIPT_PARAM_ONOFF, true)
-	KayleConfig.KS:addParam("killSteal", "×Ô¶¯ÇÀÈËÍ·", SCRIPT_PARAM_ONOFF, true)
+	KayleConfig:addSubMenu("ï¿½ï¿½ï¿½ï¿½Í·", "KS")
+	KayleConfig.KS:addParam("autoignite", "ï¿½Ô¶ï¿½ï¿½ï¿½È¼", SCRIPT_PARAM_ONOFF, true)
+	KayleConfig.KS:addParam("killSteal", "ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½Í·", SCRIPT_PARAM_ONOFF, true)
 
-	KayleConfig:addSubMenu("¾àÀëÏÔÊ¾", "Draw")
-	KayleConfig.Draw:addParam("qDraw", "QµÄ·¶Î§", SCRIPT_PARAM_ONOFF, true)
-    KayleConfig.Draw:addParam("cDraw", "EµÄ·¶Î§", SCRIPT_PARAM_ONOFF, true)
+	KayleConfig:addSubMenu("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾", "Draw")
+	KayleConfig.Draw:addParam("qDraw", "Qï¿½Ä·ï¿½Î§", SCRIPT_PARAM_ONOFF, true)
+    KayleConfig.Draw:addParam("cDraw", "Eï¿½Ä·ï¿½Î§", SCRIPT_PARAM_ONOFF, true)
 	
-	KayleConfig:addSubMenu("Ïë¹¥»÷ÄÄ¸öÊó±ê×ó¼üµãÄÄ¸ö", "12")
+	KayleConfig:addSubMenu("ï¿½ë¹¥ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½", "12")
 	
 	lastBasicAttack = os.clock()
 end
