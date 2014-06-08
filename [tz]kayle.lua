@@ -10,8 +10,8 @@ _G.IsLoaded = "[tz]kayle"
 ---------------------------------------------------------------------
 local UPDATE_FILE_PATH = SCRIPT_PATH.."[tz]kayle.lua"
 local UPDATE_NAME = "[tz]kayle"
-local UPDATE_HOST = "github.com"
-local UPDATE_PATH = "/tianzhi1992/tianzhi/blob/master/%5Btz%5Dkayle.lua?chunk="..math.random(1, 1000)
+local UPDATE_HOST = "raw.githubusercontent.com"
+local UPDATE_PATH = "/tianzhi1992/tianzhi/master/%5Btz%5Dkayle.lua"..math.random(1, 1000)
 local UPDATE_FILE_PATH = SCRIPT_PATH.."[tz]kayle.lua"
 local UPDATE_URL = "https://"..UPDATE_HOST..UPDATE_PATH
 
