@@ -1,33 +1,29 @@
 local Version = "1.0"
-_G.kayleVersion = "1.0"
-_G.kayleAUTOUPDATE = true
-_G.kayleAuthor = "tianzhi"
-_G.IsLoaded = "[tz]kayle"
 
 
 ---------------------------------------------------------------------
 --- AutoUpdate for the script ---------------------------------------
 ---------------------------------------------------------------------
-local UPDATE_FILE_PATH = SCRIPT_PATH.."[tz]kayle.lua"
+local AUTOUPDATE= true
+local UPDATE_SCRIPT_NAME = "[tz]kayle"
 local UPDATE_NAME = "[tz]kayle"
 local UPDATE_HOST = "raw.githubusercontent.com"
-local UPDATE_PATH = "/tianzhi1992/tianzhi/master/%5Btz%5Dkayle.lua"..math.random(1, 1000)
-local UPDATE_FILE_PATH = SCRIPT_PATH.."[tz]kayle.lua"
+local UPDATE_PATH = "/tianzhi1992/tianzhi/master/%5Btz%5Dkayle.lua"..math.random(1, 10000)
+local UPDATE_FILE_PATH = SCRIPT_PATH..GetCurrentEnv().FILE_NAME
 local UPDATE_URL = "https://"..UPDATE_HOST..UPDATE_PATH
 
-function AutoupdaterMsg(msg) print("<font color=\"#eFF99CC\">[".._G.IsLoaded.."]:</font> <font color=\"#FFDFBF\">"..msg..".</font>") end
-if _G.kayleAUTOUPDATE then
-    local ServerData = GetWebResult(UPDATE_HOST, UPDATE_PATH)
+function AutoupdaterMsg(msg) print("<font color=\"#6699ff\"><b>"..UPDATE_NAME..":</b></font> <font color=\"#FFFFFF\">"..msg..".</font>") end
+if AUTOUPDATE then
+    local ServerData = GetWebResult(UPDATE_HOST, UPDATE_PATH, "", 5)
     if ServerData then
-        local ServerVersion = string.match(ServerData, "_G.kayleVersion = \"%d+.%d+\"")
+        local ServerVersion = string.match(ServerData, "local version = \"%d+.%d+\"")
         ServerVersion = string.match(ServerVersion and ServerVersion or "", "%d+.%d+")
         if ServerVersion then
             ServerVersion = tonumber(ServerVersion)
-            if tonumber(_G.kayleVersion) < ServerVersion then
-                AutoupdaterMsg("A new version is available: ["..ServerVersion.."]")
+            if tonumber(Version) < ServerVersion then
+                AutoupdaterMsg("A new version is available"..ServerVersion)
                 AutoupdaterMsg("The script is updating... please don't press [F9]!")
-                DelayAction(function() DownloadFile(UPDATE_URL, UPDATE_FILE_PATH, function ()
-				AutoupdaterMsg("Successfully updated! (".._G.kayleVersion.." -> "..ServerVersion.."), Please reload (double [F9]) for the updated version!") end) end, 3)
+				DownloadFile(UPDATE_URL, UPDATE_FILE_PATH, function () AutoupdaterMsg("Successfully updated. ("..version.." => "..ServerVersion.."), press F9 twice to load the updated version.") end)
             else
                 AutoupdaterMsg("Your script is already the latest version: ["..ServerVersion.."]")
             end
