@@ -7,7 +7,7 @@ local AUTOUPDATE= true
 local UPDATE_SCRIPT_NAME = "kayle"
 local UPDATE_NAME = "kayle"
 local UPDATE_HOST = "raw.githubusercontent.com"
-local UPDATE_PATH = "/tianzhi1992/tianzhi/master/%5Btz%5Dkayle.lua".."?rand="..math.random(1,10000)
+local UPDATE_PATH = "/tianzhi1992/tianzhi/master/kayle.lua".."?rand="..math.random(1,10000)
 local UPDATE_FILE_PATH = SCRIPT_PATH..GetCurrentEnv().FILE_NAME
 local UPDATE_URL = "https://"..UPDATE_HOST..UPDATE_PATH
 function AutoupdaterMsg(msg) print("<font color=\"#6699ff\"><b>"..UPDATE_NAME..":</b></font> <font color=\"#FFFFFF\">"..msg..".</font>") end
