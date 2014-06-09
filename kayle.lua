@@ -9,7 +9,7 @@ local NetVersion = nil
 local NeedUpdate = false
 local Do_Once = true
 local ScriptName = "kayle"
-local NetFile = "raw.githubusercontent.com/tianzhi1992/tianzhi/master"..ScriptName..".lua"
+local NetFile = "http://raw.githubusercontent.com/tianzhi1992/tianzhi/master/"..ScriptName..".lua"
 local LocalFile = BOL_PATH.."Scripts\\"..ScriptName..".lua"
 -------/Auto update-------
 
@@ -30,7 +30,7 @@ end
 function UpdateScript()
 	if Do_Once then	
 		Do_Once = false
-		DownloadAll()
+		
 		if _G.UseUpdater == nil or _G.UseUpdater == true then 			
 			GetAsyncWebResult("raw.githubusercontent.com/tianzhi1992/tianzhi/master", ScriptName.."ver.txt", CheckVersion)			
 		end
@@ -395,3 +395,63 @@ if  not allowed then return end
 	tmtReady = (tmtSlot ~= nil and myHero:CanUseSpell(tmtSlot) == READY)
 	hdrReady = (hdrSlot ~= nil and myHero:CanUseSpell(hdrSlot) == READY)
 	end
+	function DownoadSite(url, savename, show)
+Debug("initiate "..show.." download")
+	DownloadFile(url, LIB_PATH..savename, function()
+							if FileExist(LIB_PATH..savename) then								
+							Debug("Downloaded "..show.." Complete.")								
+							end
+						end
+				)
+end
+
+
+function Debug(input)
+if not ShowDebugText then return end
+print("Debug: "..input)
+end
+function DownloadAll()
+Debug("Start DownloadALL")
+local siteVP = "http://bilbao.lima-city.de/VPrediction.lua"
+local siteSOW = "http://bilbao.lima-city.de/SOW.lua"
+local siteSOURCE = "http://bilbao.lima-city.de/SourceLib.lua"
+local sitePRO = "http://bilbao.lima-city.de/Prodiction.lua"
+local siteCollision = "http://bilbao.lima-city.de/Collision.lua"
+
+	if not FileExist(LIB_PATH.."VPrediction.lua") then
+		Debug("Download VPrediction.")
+		DownoadSite(siteVP, "VPrediction.lua", "VPrediction")
+	else
+		Debug("VPrediction exists.")
+	end
+	
+	if not FileExist(LIB_PATH.."SOW.lua") then
+		Debug("Download SOW.")
+		DownoadSite(siteSOW, "SOW.lua", "SimpleOrbwalker")
+	else
+		Debug("SOW exists.")
+	end
+	
+	if not FileExist(LIB_PATH.."SourceLib.lua") then
+		Debug("Download SourceLib.")
+		DownoadSite(siteSOW, "SourceLib.lua", "SourceLib")
+	else
+		Debug("SOW exists.")
+	end
+	
+	if not FileExist(LIB_PATH.."Prodiction.lua") then
+		Debug("Download Prodiction")
+		DownoadSite(siteVP, "Prodiction.lua", "Prodiction 0.9d")
+	else
+		Debug("Prodiction exists.")
+	end
+	
+	if not FileExist(LIB_PATH.."Collision.lua") then
+		Debug("Download Collision.")
+		DownoadSite(siteVP, "Collision.lua", "Collision")
+	else
+		Debug("Collision exists.")
+	end
+	
+Debug("Finished DownloadALL")
+end
