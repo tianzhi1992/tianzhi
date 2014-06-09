@@ -1,46 +1,37 @@
 local version = "1.0"
+if myHero.charName ~= "kayle" then return end
 
 
----------------------------------------------------------------------
---- AutoUpdate for the script ---------------------------------------
----------------------------------------------------------------------
+--updating
 local AUTOUPDATE= true
-local UPDATE_SCRIPT_NAME = "[tz]kayle"
-local UPDATE_NAME = "[tz]kayle"
+local UPDATE_SCRIPT_NAME = "kayle"
+local UPDATE_NAME = "kayle"
 local UPDATE_HOST = "raw.githubusercontent.com"
-local UPDATE_PATH = "/tianzhi1992/tianzhi/master/%5Btz%5Dkayle.lua"..math.random(1, 10000)
+local UPDATE_PATH = "/tianzhi1992/tianzhi/master/%5Btz%5Dkayle.lua".."?rand="..math.random(1,10000)
 local UPDATE_FILE_PATH = SCRIPT_PATH..GetCurrentEnv().FILE_NAME
 local UPDATE_URL = "https://"..UPDATE_HOST..UPDATE_PATH
-
 function AutoupdaterMsg(msg) print("<font color=\"#6699ff\"><b>"..UPDATE_NAME..":</b></font> <font color=\"#FFFFFF\">"..msg..".</font>") end
 if AUTOUPDATE then
-    local ServerData = GetWebResult(UPDATE_HOST, UPDATE_PATH, "", 5)
-    if ServerData then
-        local ServerVersion = string.match(ServerData, "local version = \"%d+.%d+\"")
-        ServerVersion = string.match(ServerVersion and ServerVersion or "", "%d+.%d+")
-        if ServerVersion then
-            ServerVersion = tonumber(ServerVersion)
-            if tonumber(version) < ServerVersion then
-                AutoupdaterMsg("A new version is available"..ServerVersion)
-                AutoupdaterMsg("The script is updating... please don't press [F9]!")
-				DownloadFile(UPDATE_URL, UPDATE_FILE_PATH, function () AutoupdaterMsg("Successfully updated. ("..version.." => "..ServerVersion.."), press F9 twice to load the updated version.") end)
-            else
-                AutoupdaterMsg("Your script is already the latest version: ["..ServerVersion.."]")
-            end
-        end
-    else
-        AutoupdaterMsg("Error downloading version info!")
-    end
+	local ServerData = GetWebResult(UPDATE_HOST, UPDATE_PATH, "", 5)
+	if ServerData then
+		local ServerVersion = string.match(ServerData, "local version = \"%d+.%d+\"")
+		ServerVersion = string.match(ServerVersion and ServerVersion or "", "%d+.%d+")
+		if ServerVersion then
+			ServerVersion = tonumber(ServerVersion)
+			if tonumber(version) < ServerVersion then
+				AutoupdaterMsg("New version available"..ServerVersion)
+				AutoupdaterMsg("Updating, please don't press F9")
+				DownloadFile(UPDATE_URL, UPDATE_FILE_PATH, function () AutoupdaterMsg("Successfully updated. ("..version.." => "..ServerVersion.."), press F9 twice to load the updated version.") end)	 
+			else
+				AutoupdaterMsg("You have got the latest version ("..ServerVersion..")")
+			end
+		end
+	else
+		AutoupdaterMsg("Error downloading version info")
+	end
 end
-	
----------------------------------------------------------------------
---- Vars ------------------------------------------------------------
----------------------------------------------------------------------
+--end Honda7
 
-
-
-
-if myHero.charName ~= "Kayle" then return end
 local allowed=false
 local aRange = 525
 local EWidth = 75
@@ -52,56 +43,53 @@ function OnLoad()
 if GetUser() == "woainima" or  GetUser() == "hnhy617369" or GetUser() == "835390" or  GetUser() == "fflovezj1221" or GetUser() == "lengbina001" or GetUser() == "kf9299" or GetUser() == "jiahongbinx" or GetUser() == "nady269" or  GetUser() == "tianzhi1992"or  GetUser() == "andrewls"
 
 then allowed = true end
-if  not allowed then PrintChat("<font color='#CCCCCC'> >>[tz]kayle未认证用户请联系作��?</font>") return end
+if  not allowed then PrintChat("<font color='#CCCCCC'> >>[tz]kayle未认证用户请联系作耿</font>") return end
     minionMobs = {}
 	minionClusters = {}
 	Vars()
-	PrintChat("<font color='#CCCCCC'> >> [tz]Kayle 载入成功<<</font>")
-	PrintChat("<font color='#CCCCCC'> >> 购买请联系QQ332433061<<</font>")
-	PrintChat("<font color='#CCCCCC'> >> 祝您游戏愉快<<</font>")
 	KayleConfig = scriptConfig("[tz] Kayle", "Kayle_The_Judicator")
-	KayleConfig:addSubMenu("����", "Combo")
-	KayleConfig.Combo:addParam("Combo", "����", SCRIPT_PARAM_ONKEYDOWN, false, 32)
-	KayleConfig.Combo:addParam("Harass", "ɧ��", SCRIPT_PARAM_ONKEYDOWN, false, string.byte("S"))
+	KayleConfig:addSubMenu("Ѭע", "Combo")
+	KayleConfig.Combo:addParam("Combo", "Ѭע", SCRIPT_PARAM_ONKEYDOWN, false, 32)
+	KayleConfig.Combo:addParam("Harass", "ɧɅ", SCRIPT_PARAM_ONKEYDOWN, false, string.byte("S"))
 	KayleConfig.Combo:permaShow("Combo")
 	KayleConfig.Combo:permaShow("Harass")
-	KayleConfig:addSubMenu("ɧ��", "harass")
-	KayleConfig.Combo:addParam("useQ", "ʹ��Q", SCRIPT_PARAM_ONOFF, true)
-	KayleConfig.Combo:addParam("useW", "ʹ��W", SCRIPT_PARAM_ONOFF, true)
-	KayleConfig.Combo:addParam("useE", "ʹ��E", SCRIPT_PARAM_ONOFF, true)
+	KayleConfig:addSubMenu("ɧɅ", "harass")
+	KayleConfig.Combo:addParam("useQ", "ʹԃQ", SCRIPT_PARAM_ONOFF, true)
+	KayleConfig.Combo:addParam("useW", "ʹԃW", SCRIPT_PARAM_ONOFF, true)
+	KayleConfig.Combo:addParam("useE", "ʹԃE", SCRIPT_PARAM_ONOFF, true)
 	KayleConfig.Combo:permaShow("Combo")
 	KayleConfig.Combo:permaShow("Harass")
-	KayleConfig.harass:addParam("useQ", "ʹ��Q", SCRIPT_PARAM_ONOFF, true)
-	KayleConfig.harass:addParam("useW", "ʹ��W", SCRIPT_PARAM_ONOFF, true)
-	KayleConfig.harass:addParam("useE", "ʹ��E", SCRIPT_PARAM_ONOFF, true)
+	KayleConfig.harass:addParam("useQ", "ʹԃQ", SCRIPT_PARAM_ONOFF, true)
+	KayleConfig.harass:addParam("useW", "ʹԃW", SCRIPT_PARAM_ONOFF, true)
+	KayleConfig.harass:addParam("useE", "ʹԃE", SCRIPT_PARAM_ONOFF, true)
 	--> Heal Settings
-	KayleConfig:addSubMenu("����", "Heal")
-	KayleConfig.Heal:addSubMenu("����Ŀ��ѡ��", "HealTargeting")
-	KayleConfig.Heal:addParam("PercentofHealth", "ʹ������Ѫ���ٷֱ�",SCRIPT_PARAM_SLICE, 25, 0, 100, 0)	
-	KayleConfig.Heal.HealTargeting:addParam(myHero.charName.."healTarget", "���� ".. myHero.charName, SCRIPT_PARAM_ONOFF, true)
+	KayleConfig:addSubMenu("׎", "Heal")
+	KayleConfig.Heal:addSubMenu("׎ĿҪѡձ", "HealTargeting")
+	KayleConfig.Heal:addParam("PercentofHealth", "ʹԃ׎Ѫљؖ҈",SCRIPT_PARAM_SLICE, 25, 0, 100, 0)	
+	KayleConfig.Heal.HealTargeting:addParam(myHero.charName.."healTarget", "׎ ".. myHero.charName, SCRIPT_PARAM_ONOFF, true)
 	for i, ally in ipairs(GetAllyHeroes()) do
-		KayleConfig.Heal.HealTargeting:addParam(ally.charName.."healTarget", "���� "..ally.charName, SCRIPT_PARAM_ONOFF, true)
+		KayleConfig.Heal.HealTargeting:addParam(ally.charName.."healTarget", "׎ "..ally.charName, SCRIPT_PARAM_ONOFF, true)
 	end
-	KayleConfig.Heal:addParam("healAllies", "���ƶ��ѿ��ؼ�", SCRIPT_PARAM_ONOFF, true)
+	KayleConfig.Heal:addParam("healAllies", "׎דԑߪژݼ", SCRIPT_PARAM_ONOFF, true)
 	--> Ult Settings
-    KayleConfig:addSubMenu("����", "ult")
-	KayleConfig.ult:addSubMenu("����Ŀ��ѡ��", "ultTargeting")
-	KayleConfig.ult:addParam("PercentofUlt", "ʹ�ô���Ѫ���ٷֱ�",SCRIPT_PARAM_SLICE, 25, 0, 100, 0)	
-	KayleConfig.ult:addParam("ultAllies", "�Զ���ʹ�ô���", SCRIPT_PARAM_ONOFF, false)
-	KayleConfig.ult:addParam("myult", "���Լ�ʹ�ô���", SCRIPT_PARAM_ONOFF, true)
-	KayleConfig.ult.ultTargeting:addParam(myHero.charName.."ultTarget", "����".. myHero.charName, SCRIPT_PARAM_ONOFF, true)
+    KayleConfig:addSubMenu("ճ֐", "ult")
+	KayleConfig.ult:addSubMenu("ճ֐ĿҪѡձ", "ultTargeting")
+	KayleConfig.ult:addParam("PercentofUlt", "ʹԃճ֐Ѫљؖ҈",SCRIPT_PARAM_SLICE, 25, 0, 100, 0)	
+	KayleConfig.ult:addParam("ultAllies", "הדԑʹԃճ֐", SCRIPT_PARAM_ONOFF, false)
+	KayleConfig.ult:addParam("myult", "הؔܺʹԃճ֐", SCRIPT_PARAM_ONOFF, true)
+	KayleConfig.ult.ultTargeting:addParam(myHero.charName.."ultTarget", "ճ֐".. myHero.charName, SCRIPT_PARAM_ONOFF, true)
 	for i, ally in ipairs(GetAllyHeroes()) do
-		KayleConfig.ult.ultTargeting:addParam(ally.charName.."ultTarget", "���� "..ally.charName, SCRIPT_PARAM_ONOFF, true)
+		KayleConfig.ult.ultTargeting:addParam(ally.charName.."ultTarget", "ճ֐ "..ally.charName, SCRIPT_PARAM_ONOFF, true)
 	end
-	KayleConfig:addSubMenu("����ͷ", "KS")
-	KayleConfig.KS:addParam("autoignite", "�Զ���ȼ", SCRIPT_PARAM_ONOFF, true)
-	KayleConfig.KS:addParam("killSteal", "�Զ�����ͷ", SCRIPT_PARAM_ONOFF, true)
+	KayleConfig:addSubMenu("Ȁɋͷ", "KS")
+	KayleConfig.KS:addParam("autoignite", "֣ؔ֯ȼ", SCRIPT_PARAM_ONOFF, true)
+	KayleConfig.KS:addParam("killSteal", "ؔ֯Ȁɋͷ", SCRIPT_PARAM_ONOFF, true)
 
-	KayleConfig:addSubMenu("������ʾ", "Draw")
-	KayleConfig.Draw:addParam("qDraw", "Q�ķ�Χ", SCRIPT_PARAM_ONOFF, true)
-    KayleConfig.Draw:addParam("cDraw", "E�ķ�Χ", SCRIPT_PARAM_ONOFF, true)
+	KayleConfig:addSubMenu("ߠkДʾ", "Draw")
+	KayleConfig.Draw:addParam("qDraw", "Qք׶Χ", SCRIPT_PARAM_ONOFF, true)
+    KayleConfig.Draw:addParam("cDraw", "Eք׶Χ", SCRIPT_PARAM_ONOFF, true)
 	
-	KayleConfig:addSubMenu("�빥���ĸ������������ĸ�", "12")
+	KayleConfig:addSubMenu("Ы٥ܷńٶ˳Ҫسݼ֣ńٶ", "12")
 	
 	lastBasicAttack = os.clock()
 end
