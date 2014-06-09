@@ -1,36 +1,59 @@
-local version = "1.0"
-if myHero.charName ~= "kayle" then return end
+--[[The only think where you are allowed to change smth]]--
+local AllowAutoUpdate = true
+local ShowDebugText = false
+--[[ends here!]]--
+
+-------Auto update-------
+local CurVer = 0.1
+local NetVersion = nil
+local NeedUpdate = false
+local Do_Once = true
+local ScriptName = "kayle"
+local NetFile = "raw.githubusercontent.com/tianzhi1992/tianzhi/master/"..ScriptName..".lua"
+local LocalFile = BOL_PATH.."Scripts\\"..ScriptName..".lua"
+-------/Auto update-------
 
 
---updating
-local AUTOUPDATE= true
-local UPDATE_SCRIPT_NAME = "kayle"
-local UPDATE_NAME = "kayle"
-local UPDATE_HOST = "raw.githubusercontent.com"
-local UPDATE_PATH = "/tianzhi1992/tianzhi/master/kayle.lua".."?rand="..math.random(1,10000)
-local UPDATE_FILE_PATH = SCRIPT_PATH..GetCurrentEnv().FILE_NAME
-local UPDATE_URL = "https://"..UPDATE_HOST..UPDATE_PATH
-function AutoupdaterMsg(msg) print("<font color=\"#6699ff\"><b>"..UPDATE_NAME..":</b></font> <font color=\"#FFFFFF\">"..msg..".</font>") end
-if AUTOUPDATE then
-	local ServerData = GetWebResult(UPDATE_HOST, UPDATE_PATH, "", 5)
-	if ServerData then
-		local ServerVersion = string.match(ServerData, "local version = \"%d+.%d+\"")
-		ServerVersion = string.match(ServerVersion and ServerVersion or "", "%d+.%d+")
-		if ServerVersion then
-			ServerVersion = tonumber(ServerVersion)
-			if tonumber(version) < ServerVersion then
-				AutoupdaterMsg("New version available"..ServerVersion)
-				AutoupdaterMsg("Updating, please don't press F9")
-				DownloadFile(UPDATE_URL, UPDATE_FILE_PATH, function () AutoupdaterMsg("Successfully updated. ("..version.." => "..ServerVersion.."), press F9 twice to load the updated version.") end)	 
-			else
-				AutoupdaterMsg("You have got the latest version ("..ServerVersion..")")
-			end
-		end
+function CheckVersion(data)
+	NetVersion = tonumber(data)
+	if type(NetVersion) ~= "number" then return end
+	if NetVersion and NetVersion > CurVer then
+		print("<font color='#FF4000'> >> "..ScriptName..": New version available "..NetVersion..".</font>") 
+		print("<font color='#FF4000'> >> "..ScriptName..": Updating, please do not press F9 until update is finished.</font>") 
+		NeedUpdate = true  
 	else
-		AutoupdaterMsg("Error downloading version info")
+		print("<font color='#00BFFF' >> "..ScriptName..": You have the lastest version.</font>") 
 	end
 end
---end Honda7
+
+
+function UpdateScript()
+	if Do_Once then	
+		Do_Once = false
+		DownloadAll()
+		if _G.UseUpdater == nil or _G.UseUpdater == true then 			
+			GetAsyncWebResult("raw.githubusercontent.com/tianzhi1992/tianzhi/master", ScriptName.."ver.txt", CheckVersion)			
+		end
+	end	
+	if NeedUpdate then
+		NeedUpdate = false
+		DownloadFile(NetFile, LocalFile, function()
+							if FileExist(LocalFile) then
+								print("<font color='#00BFFF'> >> "..ScriptName..": Successfully updated v"..CurVer.." -> v"..NetVersion.." - Please reload.</font>")								
+							end
+						end
+				)
+	end
+end
+if AllowAutoUpdate then AddTickCallback(UpdateScript) end
+	
+---------------------------------------------------------------------
+--- Vars ------------------------------------------------------------
+---------------------------------------------------------------------
+
+
+
+
 
 local allowed=false
 local aRange = 525
@@ -47,6 +70,9 @@ if  not allowed then PrintChat("<font color='#CCCCCC'> >>[tz]kayle未认证用�
     minionMobs = {}
 	minionClusters = {}
 	Vars()
+	PrintChat("<font color='#CCCCCC'> >> [tz]Kayle 载入成功<<</font>")
+	PrintChat("<font color='#CCCCCC'> >> 购买请联系QQ332433061<<</font>")
+	PrintChat("<font color='#CCCCCC'> >> 祝您游戏愉快<<</font>")
 	KayleConfig = scriptConfig("[tz] Kayle", "Kayle_The_Judicator")
 	KayleConfig:addSubMenu("Ѭע", "Combo")
 	KayleConfig.Combo:addParam("Combo", "Ѭע", SCRIPT_PARAM_ONKEYDOWN, false, 32)
