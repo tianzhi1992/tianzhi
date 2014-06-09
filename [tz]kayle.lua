@@ -1,4 +1,4 @@
-local Version = "1.1"
+local version = "1.0"
 
 
 ---------------------------------------------------------------------
@@ -20,7 +20,7 @@ if AUTOUPDATE then
         ServerVersion = string.match(ServerVersion and ServerVersion or "", "%d+.%d+")
         if ServerVersion then
             ServerVersion = tonumber(ServerVersion)
-            if tonumber(Version) < ServerVersion then
+            if tonumber(version) < ServerVersion then
                 AutoupdaterMsg("A new version is available"..ServerVersion)
                 AutoupdaterMsg("The script is updating... please don't press [F9]!")
 				DownloadFile(UPDATE_URL, UPDATE_FILE_PATH, function () AutoupdaterMsg("Successfully updated. ("..version.." => "..ServerVersion.."), press F9 twice to load the updated version.") end)
