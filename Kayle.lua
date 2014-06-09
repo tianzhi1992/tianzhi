@@ -1,4 +1,4 @@
-local version = "1.21"
+local version = "1.22"
 if myHero.charName ~= "Kayle" then return end
 local AUTOUPDATE= true
 local UPDATE_SCRIPT_NAME = "Kayle"
@@ -60,7 +60,7 @@ if  not allowed then PrintChat("<font color='#CCCCCC'> >>[tz]kayle未认证用�
 	KayleConfig.Combo:addParam("Harass", "harass", SCRIPT_PARAM_ONKEYDOWN, false, string.byte("S"))
 	KayleConfig.Combo:permaShow("Combo")
 	KayleConfig.Combo:permaShow("Harass")
-	KayleConfig:addSubMenu("ɧɅ", "harass")
+	KayleConfig:addSubMenu("harass", "harass")
 	KayleConfig.Combo:addParam("useQ", "ʹQ", SCRIPT_PARAM_ONOFF, true)
 	KayleConfig.Combo:addParam("useW", "ʹW", SCRIPT_PARAM_ONOFF, true)
 	KayleConfig.Combo:addParam("useE", "ʹE", SCRIPT_PARAM_ONOFF, true)
