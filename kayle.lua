@@ -9,7 +9,7 @@ local NetVersion = nil
 local NeedUpdate = false
 local Do_Once = true
 local ScriptName = "kayle"
-local NetFile = "raw.githubusercontent.com/tianzhi1992/tianzhi/master/"..ScriptName..".lua"
+local NetFile = "raw.githubusercontent.com/tianzhi1992/tianzhi/master"..ScriptName..".lua"
 local LocalFile = BOL_PATH.."Scripts\\"..ScriptName..".lua"
 -------/Auto update-------
 
