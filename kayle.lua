@@ -1,4 +1,4 @@
-if myHero.charName ~= "kayle" then return end
+if myHero.charName ~= "Kayle" then return end
 --[[The only think where you are allowed to change smth]]--
 local AllowAutoUpdate = true
 local ShowDebugText = false
@@ -9,7 +9,7 @@ local CurVer = 0.1
 local NetVersion = nil
 local NeedUpdate = false
 local Do_Once = true
-local ScriptName = "kayle"
+local ScriptName = "Kayle"
 local NetFile = "http://raw.githubusercontent.com/tianzhi1992/tianzhi/master/"..ScriptName..".lua"
 local LocalFile = BOL_PATH.."Scripts\\"..ScriptName..".lua"
 -------/Auto update-------
