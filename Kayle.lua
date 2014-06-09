@@ -1,4 +1,4 @@
-local version = "1.22"
+local version = "1.23"
 if myHero.charName ~= "Kayle" then return end
 local AUTOUPDATE= true
 local UPDATE_SCRIPT_NAME = "Kayle"
@@ -44,7 +44,7 @@ local qRange,wRange,eRange,rRange = 650, 900, 525, 900
 local wRange = 900
 
 function OnLoad()
-if GetUser() == "zhaolei" or  GetUser() == "hnhy617369" or GetUser() == "835390" or  GetUser() == "fflovezj1221" or GetUser() == "lengbina001" or GetUser() == "kf9299" or GetUser() == "jiahongbinx" or GetUser() == "nady269" or  GetUser() == "tianzhi1992"or  GetUser() == "andrewls"
+if GetUser() == "zhaolei" or  GetUser() == "hnhy617369" or GetUser() == "835390" or  GetUser() == "fflovezj1221" or GetUser() == "lengbina001" or GetUser() == "kf9299" or GetUser() == "jiahongbinx" or GetUser() == "nady26" or  GetUser() == "tianzhi1992"or  GetUser() == "andrewls"
 
 then allowed = true end
 if  not allowed then PrintChat("<font color='#CCCCCC'> >>[tz]kayle未认证用户请联系作耿</font>") return end
