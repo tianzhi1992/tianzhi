@@ -56,7 +56,7 @@ if  not allowed then PrintChat("<font color='#CCCCCC'> >>[tz]kayle未认证用�
 	PrintChat("<font color='#CCCCCC'> >> 祝您游戏愉快<<</font>")
 	KayleConfig = scriptConfig("[tz] Kayle", "Kayle_The_Judicator")
 	KayleConfig:addSubMenu("Ѭע", "Combo")
-	KayleConfig.Combo:addParam("Combo", "Ѭע", SCRIPT_PARAM_ONKEYDOWN, false, 32)
+	KayleConfig.Combo:addParam("Combo", "爆发", SCRIPT_PARAM_ONKEYDOWN, false, 32)
 	KayleConfig.Combo:addParam("Harass", "ɧɅ", SCRIPT_PARAM_ONKEYDOWN, false, string.byte("S"))
 	KayleConfig.Combo:permaShow("Combo")
 	KayleConfig.Combo:permaShow("Harass")
