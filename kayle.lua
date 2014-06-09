@@ -1,3 +1,4 @@
+if myHero.charName ~= "kayle" then return end
 --[[The only think where you are allowed to change smth]]--
 local AllowAutoUpdate = true
 local ShowDebugText = false
