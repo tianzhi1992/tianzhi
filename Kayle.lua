@@ -11,8 +11,8 @@ function AutoupdaterMsg(msg) print("<font color=\"#6699ff\"><b>"..UPDATE_NAME.."
 if AUTOUPDATE then
 	local ServerData = GetWebResult(UPDATE_HOST, UPDATE_PATH, "", 5)
 	if ServerData then
-		local ServerVersion = string.match(ServerData, "local version = \"%d+.%d+%d+\"")
-		ServerVersion = string.match(ServerVersion and ServerVersion or "", "%d+.%d+%d+")
+		local ServerVersion = string.match(ServerData, "local version = \"%d+.%d+\"")
+		ServerVersion = string.match(ServerVersion and ServerVersion or "", "%d+.%d+")
 		if ServerVersion then
 			ServerVersion = tonumber(ServerVersion)
 			if tonumber(version) < ServerVersion then
