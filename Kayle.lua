@@ -1,4 +1,4 @@
-local version = "1.4"
+local version = "1.3"
 if myHero.charName ~= "Kayle" then return end
 local AUTOUPDATE= true
 local UPDATE_SCRIPT_NAME = "Kayle"
@@ -16,15 +16,15 @@ if AUTOUPDATE then
 		if ServerVersion then
 			ServerVersion = tonumber(ServerVersion)
 			if tonumber(version) < ServerVersion then
-				AutoupdaterMsg("有新版本可以获得"..ServerVersion)
-				AutoupdaterMsg("下载中请勿按F9")
-				DownloadFile(UPDATE_URL, UPDATE_FILE_PATH, function () AutoupdaterMsg("更新成功. ("..version.." => "..ServerVersion.."), 双击F9载入新版.") end)	 
+				AutoupdaterMsg("新版已经可以获得"..ServerVersion)
+				AutoupdaterMsg("更新中，请勿按F9")
+				DownloadFile(UPDATE_URL, UPDATE_FILE_PATH, function () AutoupdaterMsg("Successfully updated. ("..version.." => "..ServerVersion.."), press F9 twice to load the updated version.") end)	 
 			else
-				AutoupdaterMsg("你已经获得了最新版 ("..ServerVersion..")")
+				AutoupdaterMsg("You have got the latest version ("..ServerVersion..")")
 			end
 		end
 	else
-		AutoupdaterMsg("错误的版本信息")
+		AutoupdaterMsg("错误的版本更新信息")
 	end
 end
 	
