@@ -58,7 +58,7 @@ local BRKREADY, DFGREADY, HXGREADY, BWCREADY, TMTREADY, RAHREADY, RNDREADY, YGBR
  
 local allowed = false
 function OnLoad()
-if GetUser() == "zhaolei" or  GetUser() == "hnhy617369" or GetUser() == "tianzhi1992" then allowed = true end
+if GetUser() == "zhaolei" or  GetUser() == "qq979797922" or GetUser() == "tianzhi1992" then allowed = true end
 if  not allowed then return end
         PrintChat("<font color='#CCCCCC'> >> Fiora loading<<</font>")
         FCConfig = scriptConfig("burn Fiora", "FioraCombo")
