@@ -1,4 +1,4 @@
-local version = "1.2"
+local version = "1.3"
 
 local AUTOUPDATE= true
 local UPDATE_SCRIPT_NAME = "Fiora"
