@@ -1,4 +1,4 @@
-local version = "2.0"
+local version = "2.1"
 if myHero.charName ~= "Kayle" then return end
 local AUTOUPDATE= true
 local UPDATE_SCRIPT_NAME = "Kayle"
@@ -31,12 +31,23 @@ end
 ---------------------------------------------------------------------
 --- Vars ------------------------------------------------------------
 ---------------------------------------------------------------------
+local VERIFY_HOST = "gist.githubusercontent.com"
+local VERIFY_PATH = "/tianzhi1992/e4b72d311482633110a9/raw/users?rand="..math.random(1,10000)
+
+local str = GetWebResult(VERIFY_HOST, VERIFY_PATH, "", 5)
+local idx = tonumber(string.find(str, '{'..GetUser()..'}'))
+if idx == nil
+	then
+	allowed=false
+else
+	allowed=true
+end
 
 
 
 
 
-local allowed=false
+
 local aRange = 525
 local EWidth = 75
 local rRange = 900
@@ -44,9 +55,7 @@ local qRange,wRange,eRange,rRange = 650, 900, 525, 900
 local wRange = 900
 
 function OnLoad()
-if GetUser() == "zhanghao11" or GetUser() == "kf9299" or GetUser() == "hnhy617369" or GetUser() == "835390" or  GetUser() == "fflovezj1221" or GetUser() == "lengbina001" or GetUser() == "kf9299" or GetUser() == "jiahongbinx" or GetUser() == "nady69" or  GetUser() == "tianzhi1992"or  GetUser() == "andrewls"
 
-then allowed = true end
 if  not allowed then PrintChat("<font color='#CCCCCC'> >>[tz]kayle未认证用户请联系作耿</font>") return end
     minionMobs = {}
 	minionClusters = {}
