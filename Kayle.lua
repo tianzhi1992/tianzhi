@@ -1,4 +1,4 @@
-local version = "2.1"
+local version = "2.11"
 if myHero.charName ~= "Kayle" then return end
 local AUTOUPDATE= true
 local UPDATE_SCRIPT_NAME = "Kayle"
@@ -35,7 +35,7 @@ local VERIFY_HOST = "gist.githubusercontent.com"
 local VERIFY_PATH = "/tianzhi1992/e4b72d311482633110a9/raw/users?rand="..math.random(1,10000)
 
 local str = GetWebResult(VERIFY_HOST, VERIFY_PATH, "", 5)
-local idx = tonumber(string.find(str, '{'..GetUser()..'}'))
+local idx = (string.find(str, '{'..GetUser()..'}'))
 if idx == nil
 	then
 	allowed=false
